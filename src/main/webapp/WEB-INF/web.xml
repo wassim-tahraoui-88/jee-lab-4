@@ -11,6 +11,10 @@
         <servlet-class>com.horizon.lab.controller.Authentication</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.horizon.lab.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>InfoServlet</servlet-name>
         <servlet-class>com.horizon.lab.controller.InfoServlet</servlet-class>
     </servlet>
@@ -22,5 +26,9 @@
     <servlet-mapping>
         <servlet-name>InfoServlet</servlet-name>
         <url-pattern>/detail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 </web-app>

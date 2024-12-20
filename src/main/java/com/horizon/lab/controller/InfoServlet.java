@@ -1,15 +1,18 @@
 package com.horizon.lab.controller;
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "ShowThemeServlet", value = "/ShowTheme")
+import java.io.IOException;
+
+@WebServlet(name = "InfoServlet", value = "/detail")
 public class InfoServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
-
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	    request.getRequestDispatcher("/details.jsp").forward(request, response);
 	}
 }

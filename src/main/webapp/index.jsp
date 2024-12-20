@@ -6,7 +6,11 @@
     <title>Lab 4</title>
 </head>
 <body>
-    <h1>Select Your Theme</h1>
+    <h1>Lab 4</h1>
+    <%
+        var status = request.getAttribute("status");
+        if (status != null) out.println("<p style='color: blue'><i>" + status + "</i></p>");
+    %>
     <a href="login.jsp">Connect</a>
     <a href="detail">Info Session</a>
 </body>

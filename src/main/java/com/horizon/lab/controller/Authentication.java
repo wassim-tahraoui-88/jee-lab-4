@@ -1,6 +1,7 @@
 package com.horizon.lab.controller;
 
 import com.horizon.lab.model.User;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -25,19 +26,20 @@ public class Authentication extends HttpServlet {
 	}
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		var _username = request.getParameter("username");
 		var _password = request.getParameter("password");
 
 		if (_username.equals(username) && _password.equals(password)) {
-			// TODO:
 			var session = request.getSession();
 			session.setAttribute("login", new User(_username, _password));
+
+			request.setAttribute("status", "Authentication successful!");
+			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		else {
-			// TODO:
 			request.setAttribute("error", "Invalid username or password.");
-			response.sendRedirect("login.jsp");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 
     }
